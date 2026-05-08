@@ -4,9 +4,8 @@ return {
 		lazy = false,
 		build = ":TSUpdate",
 		branch = "main",
-		-- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
+
 		config = function()
-			-- ensure basic parser are installed
 			local parsers = {
 				"bash",
 				"c",
@@ -16,7 +15,6 @@ return {
 				"luadoc",
 				"markdown",
 				"markdown_inline",
-				"query",
 				"vim",
 				"vimdoc",
 			}
@@ -32,13 +30,6 @@ return {
 				-- enables syntax highlighting and other treesitter features
 				vim.treesitter.start(buf, language)
 
-				-- enables treesitter based folds
-				-- for more info on folds see `:help folds`
-				-- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-				-- vim.wo.foldmethod = 'expr'
-
-				-- check if treesitter indentation is available for this language, and if so enable it
-				-- in case there is no indent query, the indentexpr will fallback to the vim's built in one
 				local has_indent_query = vim.treesitter.query.get(language, "indents") ~= nil
 
 				-- enables treesitter based indentation
