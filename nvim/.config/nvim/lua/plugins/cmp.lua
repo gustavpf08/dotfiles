@@ -80,7 +80,8 @@ return {
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 
-					["<C-l>"] = cmp.mapping.confirm({
+					["<CR>"] = cmp.mapping.confirm({
+						behavior = cmp.ConfirmBehavior.Replace,
 						select = true,
 					}),
 
